@@ -1,0 +1,63 @@
+{
+  "name": "<%= npm.libName %>",
+  "version": "0.0.1",
+  "description": "<%= npm.description %>",
+  "sideEffects": false,
+  "main": "lib/<%= others.className %>.js",
+  "unpkg": "dist/<%= others.className %>.js",
+  "module": "es/<%= others.className %>.js",
+  "typings": "types/src/index.d.ts",
+  "scripts": {
+    "lint:fix": "tslint --fix --config tslint.json src/index.ts",
+    "lint": "tslint --config tslint.json src/index.ts",
+    "tsc:build": "tsc",
+    "rollup:build": "rollup -c",
+    "build": "npm run tsc:build && npm run rollup:build",
+    "pack": "npm run build && npm pack",
+    "status": "git status"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<%= git.username %>/<%= git.libName %>.git"
+  },
+  "author": {
+    "name": "<%= git.username %>",
+    "email": "<%= git.useremail %>",
+    "url": "https://github.com/<%= git.username %>"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/<%= git.username %>/<%= git.libName %>/issues"
+  },
+  "homepage": "https://github.com/<%= git.username %>/<%= git.libName %>#readme",
+  "devDependencies": {
+    "@rollup/plugin-replace": "^2.2.1",
+    "cross-env": "^6.0.0",
+    "gitbook-cli": "^2.3.2",
+    "rollup": "^1.26.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "source-map-support": "^0.5.13",
+    "tslint": "^5.20.0",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-markdown": "^2.2.11",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {},
+  "npm.libName": "<%= npm.libName %>",
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js"
+      ]
+    }
+  ]
+}
