@@ -122,39 +122,14 @@ module.exports = class extends Generator {
     }
 
     this.spawnCommand("covgen", [this.answers.git.useremail]);
+
+    this.spawnCommand("git", [
+      "remote",
+      "set",
+      "origin",
+      `git@personal:AkashBabu/${this.answers.git.libName}.git`
+    ]);
   }
 
   end() {}
 };
-
-/**
- * Prompting
- *
- * git.username
- * {git.useremail}
- * (git.libName)
- * (npm.libName)
- * (description)
- * (keywords - comma separated)
- * (className)
- * {coverallsToken}
- *  npm script
- *  add this stage for pre-commit hook
- *  create a file with the given token as repo_token
- *
- * would you like to generate code-of-conduct ?
- */
-
-/**
- * Feature
- * rename entry file
- * generate test file
- * covgen needed
- */
-
-/**
- * installations
- * Would
- * npm install -g covgen
- * run covgen
- */
